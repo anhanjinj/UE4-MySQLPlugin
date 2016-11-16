@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "DBSupport",
+	"Description": "A Plugin for UE4 to connect to Database.",
+	"Category": "Other",
+	"CreatedBy": "634395578",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "www.xkismet.com",
+	"EnabledByDefault": true,
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "DBSupport",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
