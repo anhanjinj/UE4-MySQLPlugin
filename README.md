@@ -4,7 +4,10 @@
 a UE4 plugin for MySQL
 @author 634395578@qq.com	2016/11/16
 
+if you find any bug , you can send a email to my email: 634395578@qq.com
+
 //////////////////////////////////////////////////
+
 	support database:
 		
 			*mysql-5.7.16
