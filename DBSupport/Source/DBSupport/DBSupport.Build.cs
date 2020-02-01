@@ -5,7 +5,7 @@ using Path = System.IO.Path;
 
 public class DBSupport : ModuleRules
 {
-	public DBSupport(TargetInfo Target)
+	public DBSupport(ReadOnlyTargetRules Target) : base(Target)
     {
         PublicIncludePaths.AddRange(
 			new string[] {
@@ -68,16 +68,14 @@ public class DBSupport : ModuleRules
         if ( Target.Platform == UnrealTargetPlatform.Win32 )
         {
             string DBLibBinPath = Path.Combine( DBPath86, "lib");
-            PublicLibraryPaths.Add( DBLibBinPath );
-            PublicAdditionalLibraries.Add( "libmysql.lib" );
+            PublicAdditionalLibraries.Add(Path.Combine(DBLibBinPath,"libmysql.lib"));
             PublicDelayLoadDLLs.Add( "libmysql.dll" );
             //RuntimeDependencies.Add( new RuntimeDependency( Path.Combine( DBLibBinPath, "libmysql.dll" ) ) );
         }
         else if (Target.Platform == UnrealTargetPlatform.Win64 )
         {
             string DBLibBinPath = Path.Combine(DBPath64, "lib");
-            PublicLibraryPaths.Add(DBLibBinPath);
-            PublicAdditionalLibraries.Add("libmysql.lib");
+            PublicAdditionalLibraries.Add(Path.Combine(DBLibBinPath,"libmysql.lib"));
             PublicDelayLoadDLLs.Add("libmysql.dll");
             //RuntimeDependencies.Add(new RuntimeDependency(Path.Combine(DBLibBinPath, "libmysql.dll")));
         }

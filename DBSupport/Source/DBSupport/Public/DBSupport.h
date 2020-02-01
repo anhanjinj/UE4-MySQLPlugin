@@ -3,7 +3,7 @@
 #pragma once
 
 #include "DBBase.h"
-#include <ModuleManager.h>
+#include <Modules/ModuleManager.h>
 
 /**
 * The public interface to this module
@@ -12,10 +12,10 @@ class IDBSupportPlugin : public IModuleInterface
 {
 public:
 
-	//»ñµÃÁ¬½Ó¶ÔÏóÖ¸Õë;
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½;
 	virtual DBBase::IConnection * GetConnection(CONNECTION_TYPE type) = 0;
 
-	//ÊÍ·ÅÁ¬½Ó¶ÔÏóÖ¸Õë
+	//ï¿½Í·ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 	virtual  bool ReleaseConnection(DBBase::IConnection * pConn) = 0;
 
 public:
