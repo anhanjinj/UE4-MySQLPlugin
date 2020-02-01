@@ -1,38 +1,41 @@
 # UE4-MySQLPlugin
-///////////////////////////////////////////////////
-Update: Added 4.24 support
-a UE4 plugin for MySQL
-@author 634395578@qq.com	2016/11/16
-if you find any bug , you can send a email to my email: 634395578@qq.com
 
-//////////////////////////////////////////////////
+## Contributor Update: Added WIP 4.24 support
+The plugin provides custom interface of MySQL Connector C++ to Unreal Engine
+
+Plugin author: 
+634395578@qq.com	2016/11/16
+
 
 	support database:
-		
 			*mysql-5.7.16
+
+
+------------
+
+
+
+
+
+
+To use this plugin you shuld:
+
+1. Set up MySQL on your computer.
+2. Add a plugin folder in your project, then copy "DBSupport" to Plugins folder, restart your project.
+3. if your project has vsproject, your **build.cs** should add "DBSupport" module :
+		
+		PublicDependencyModuleNames.AddRange(new string[] {"DBSupport"});
 	
-	later will support:	
-		
-		*postgresql
-		
-
-//////////////////////////////////////////////////
+4. add  in the file which you want use the plugin.
+```cpp
+"#include "DBSupport.h"
+```
 
 
 
-
-to use this plugin you shuld:
-
-1. set up mysql in your pc.
-2. add A plugin folder in your project, then copy "DBSupport" under it, restart your project.
-3. if your project has vsproject, your build.cs should add "DBSupport" moudle :
-		
-		PublicDependencyModuleNames.AddRange(new string[] { ....."DBSupport", ..... });
-
-4. add "#include "DBSupport.h" in the file which you want use the plugin.
+------------
 
 
-///////////////////////////////////////////////////////
 
 
 example code:
