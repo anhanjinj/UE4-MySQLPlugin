@@ -1,9 +1,8 @@
 # UE4-MySQLPlugin
 ///////////////////////////////////////////////////
-
+Update: Added 4.24 support
 a UE4 plugin for MySQL
 @author 634395578@qq.com	2016/11/16
-
 if you find any bug , you can send a email to my email: 634395578@qq.com
 
 //////////////////////////////////////////////////
@@ -38,29 +37,20 @@ to use this plugin you shuld:
 
 example code:
 
-
-
-
 		#include "MyP.h"
 		#include "MyPGameModeBase.h"
 		
 		#include "DBSupport.h"
 		using namespace DBBase;
 
-
-
-
 		void AMyPGameModeBase::StartPlay()
 		{
 			Super::StartPlay();
 
-			
 			if (IDBSupportPlugin::IsAvailable())
 			{
-
 				//init connection
 				DBBase::IConnection * pDBC = IDBSupportPlugin::Get().GetConnection(MYSQL_CONNECTION);
-
 
 				if (pDBC)
 				{
