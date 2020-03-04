@@ -1,6 +1,6 @@
 # UE4-MySQLPlugin
 
-## Contributor Update: Added WIP 4.24 support
+## Contributor Update: Added 4.24 support
 The plugin provides custom interface of MySQL Connector C++ to Unreal Engine
 
 Plugin author: 
