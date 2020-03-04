@@ -9,6 +9,8 @@ Plugin author:
 
 	support database:
 			*mysql-5.7.16
+		not fully tested
+			*mysql-8.0.19
 
 
 ------------
