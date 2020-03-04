@@ -1,5 +1,6 @@
-#include "DBSupportPrivatePCH.h"
 #include "DBMySQL.h"
+#include "DBSupportPrivatePCH.h"
+
 
 #ifdef DBSUPPORT_MYSQL
 
@@ -14,7 +15,7 @@ bool DBBase::MYSQLConnection::Connect(string host,string dbname, string user, st
 	
 	if (!m_pConn)
 	{
-		std::string err = "Êý¾Ý¿âÁ¬½ÓÊ§°Ü£¬Ô­Òò:";
+		std::string err = "ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½Ô­ï¿½ï¿½:";
 		err += mysql_error(m_pConn);
 		return false;
 	}
@@ -78,7 +79,7 @@ bool DBBase::MYSQLConnection::Execute(string SQL)
 	if (nRes != 0)
 	{
 		string err;
-		err = "²éÑ¯Ê§°Ü£¬Ô­Òò£º";
+		err = "ï¿½ï¿½Ñ¯Ê§ï¿½Ü£ï¿½Ô­ï¿½ï¿½";
 		err += mysql_error(m_pConn);
 
 		return false;
@@ -228,7 +229,7 @@ int DBBase::MYSQLRecordSet::GetIntegerValue( string fieldName )
 	if(res == "") 
 	{
 		stringstream err;
-		err<< "²éÑ¯»ñÈ¡µ½¿ÕÖµ.";
+		err<< "ï¿½ï¿½Ñ¯ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ.";
 		err.str("");
 
 		return -1;
@@ -244,7 +245,7 @@ __int64 DBBase::MYSQLRecordSet::GetLongLongValue( string fieldName )
 	if (res == "")
 	{
 		stringstream err;
-		err << "²éÑ¯»ñÈ¡µ½¿ÕÖµ.";
+		err << "ï¿½ï¿½Ñ¯ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ.";
 		err.str("");
 
 		return -1;

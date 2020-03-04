@@ -1,8 +1,9 @@
 // Copyright 1998-2016 Epic Games, Inc. All Rights Reserved.
 
+#include "DBSupport.h"
 #include "DBSupportPrivatePCH.h"
 
-#include "DBSupport.h"
+
 #include <Core.h>
 #include <Modules/ModuleManager.h>
 #include <Interfaces/IPluginManager.h>

@@ -7,22 +7,10 @@ public class DBSupport : ModuleRules
 {
 	public DBSupport(ReadOnlyTargetRules Target) : base(Target)
     {
-        PublicIncludePaths.AddRange(
-			new string[] {
-				"DBSupport/Public",
-                "ThirdPart/Public",
-				// ... add public include paths required here ...
-			}
-			);
+        PublicIncludePaths.AddRange(new string[] {"DBSupport/Public"});
 				
 		
-		PrivateIncludePaths.AddRange(
-			new string[] {
-				"DBSupport/Private",
-                "ThirdPart/Private",
-				// ... add other private include paths required here ...
-			}
-			);
+		PrivateIncludePaths.AddRange(new string[] {"DBSupport/Private"});
 			
 		
 		PublicDependencyModuleNames.AddRange(

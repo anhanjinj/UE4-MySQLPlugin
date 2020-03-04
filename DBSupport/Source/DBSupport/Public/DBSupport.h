@@ -4,7 +4,6 @@
 
 #include "DBBase.h"
 #include <Modules/ModuleManager.h>
-
 /**
 * The public interface to this module
 */

@@ -3,7 +3,6 @@
 #include "../Private/DBSupportPrivatePCH.h"
 #include <string>
 
-
 //数据库连接类型，用于创建不同连接
 typedef enum
 {
@@ -56,12 +55,13 @@ namespace DBBase
 	};
 
 	//数据库连接基类
+
 	class IConnection
 	{
 	public:
 		//连接数据库
-		virtual bool Connect(std::string host,std::string dbname, std::string user, 
-			std::string password, std::string Encode ="GBK", int port = 3306) = 0;
+		virtual bool Connect(std::string host, std::string dbname, std::string user,
+			std::string password, std::string Encode = "GBK", int port = 3306) = 0;
 
 		//断开连接
 		virtual bool DisConnect() = 0;
@@ -73,24 +73,25 @@ namespace DBBase
 		virtual bool Execute(std::string SQL) = 0;
 
 		//执行查询语句，返回记录集;
-		virtual IRecordSet * Query(std::string SQL) = 0;
+		virtual IRecordSet* Query(std::string SQL) = 0;
 
 		//开始事务
 		virtual void BeginTrans() = 0;
 
 		//执行事务
-		virtual void CommitTrans() = 0; 
+		virtual void CommitTrans() = 0;
 
 		//回滚操作
 		virtual void RollBackTrans() = 0;
 
 		//设置数据库编码格式
-		virtual int	SetClientEncoding(const char * encode) = 0;
+		virtual int	SetClientEncoding(const char* encode) = 0;
 
 		//直接向数据库传参；
-		virtual IConnectionPtr  *ConnectionPtr() = 0;
+		virtual IConnectionPtr* ConnectionPtr() = 0;
 
 		//判断数据库中某个表是否存在
 		virtual bool IsTableExist(std::string TableName) = 0;
 	};
 };
+
