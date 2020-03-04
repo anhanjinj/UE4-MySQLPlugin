@@ -1,11 +1,12 @@
 // Copyright 1998-2016 Epic Games, Inc. All Rights Reserved.
 
+#include "DBSupport.h"
 #include "DBSupportPrivatePCH.h"
 
-#include "DBSupport.h"
+
 #include <Core.h>
-#include <ModuleManager.h>
-#include <IPluginManager.h>
+#include <Modules/ModuleManager.h>
+#include <Interfaces/IPluginManager.h>
 
 
 #include "DBMySQL.h"
@@ -25,10 +26,10 @@ public:
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
 
-	//»ñµÃÁ¬½Ó¶ÔÏóÖ¸Õë;
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½;
 	virtual IConnection * GetConnection(CONNECTION_TYPE type) override;
 	
-	//ÊÍ·ÅÁ¬½Ó¶ÔÏóÖ¸Õë
+	//ï¿½Í·ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 	virtual bool ReleaseConnection(IConnection * pConn) override;
 
 	void* DBLibHandle;
@@ -82,7 +83,7 @@ void DBSupportModule::ShutdownModule()
 
 }
 
-//»ñµÃÁ¬½Ó¶ÔÏóÖ¸Õë
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 IConnection * DBSupportModule::GetConnection(CONNECTION_TYPE type)			
 {
 
@@ -115,7 +116,7 @@ IConnection * DBSupportModule::GetConnection(CONNECTION_TYPE type)
 	}
 	return nullptr;
 }
-//¶Ï¿ªÁ¬½Ó£¬ÊÍ·ÅÁ¬½Ó¶ÔÏó
+//ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
 bool DBSupportModule::ReleaseConnection(IConnection * pConn)
 {
 		if (pConn)

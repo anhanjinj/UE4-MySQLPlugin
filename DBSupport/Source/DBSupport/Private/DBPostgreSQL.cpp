@@ -1,5 +1,6 @@
-#include "DBSupportPrivatePCH.h"
 #include "DBPostgreSQL.h"
+#include "DBSupportPrivatePCH.h"
+
 
 #ifdef DBSUPPORT_PGSQL
 
@@ -20,7 +21,7 @@ bool DBBase::PGConnection::Connect(string host,string dbname, string user, strin
 			DisConnect();
 			
 			string err;
-			err ="Êý¾Ý¿âÁ¬½ÓÊ§°Ü£¬Ô­Òò:";
+			err ="ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½Ô­ï¿½ï¿½:";
 			err += PQerrorMessage(m_pConn);
 			THROW_EX(err);
 			return false;
@@ -71,7 +72,7 @@ bool DBBase::PGConnection::Execute(string SQL)
 	if (PQresultStatus(pRes) != PGRES_COMMAND_OK&& PQresultStatus(pRes) != PGRES_TUPLES_OK)
 	{
 		string err;
-		err = "²éÑ¯Ê§°Ü£¬Ô­Òò£º";
+		err = "ï¿½ï¿½Ñ¯Ê§ï¿½Ü£ï¿½Ô­ï¿½ï¿½";
 		err += PQerrorMessage(m_pConn);
 		PQclear(pRes);
 		THROW_EX(err);
@@ -90,7 +91,7 @@ IRecordSet * DBBase::PGConnection::Query(string SQL)
 	if (PQresultStatus(pRes) != PGRES_TUPLES_OK)
 	{
 		string err;
-		err += "²éÑ¯Ê§°Ü£¬Ô­Òò£º";
+		err += "ï¿½ï¿½Ñ¯Ê§ï¿½Ü£ï¿½Ô­ï¿½ï¿½";
 		err += PQerrorMessage(m_pConn);
 		PQclear(pRes);
 		THROW_EX(err);
@@ -205,7 +206,7 @@ int DBBase::PGRecordSet::GetIntegerValue( string fieldName )
 	if(res == "") 
 	{
 		stringstream err;
-		err<< "²éÑ¯»ñÈ¡µ½¿ÕÖµ.";
+		err<< "ï¿½ï¿½Ñ¯ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ.";
 		THROW_EX(err.str());
 		err.str("");
 
@@ -222,7 +223,7 @@ __int64 DBBase::PGRecordSet::GetLongLongValue( string fieldName )
 	if(res == "") 
 	{
 		stringstream err;
-		err<< "²éÑ¯»ñÈ¡µ½¿ÕÖµ.";
+		err<< "ï¿½ï¿½Ñ¯ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ.";
 		THROW_EX(err.str());
 		err.str("");
 
@@ -241,9 +242,9 @@ std::string DBBase::PGRecordSet::GetStringValue( string fieldName )
 	if(nNum < 0)
 	{
 		string err;
-		err = "Î´ÔÚ²éÑ¯½á¹ûÖÐÕÒµ½Óë";
+		err = "Î´ï¿½Ú²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½";
 		err += fieldName;
-		err +="Ò»ÖÂµÄ×Ö¶Î£¬¼ì²éÊäÈëÊÇ·ñÓÐÎó.";
+		err +="Ò»ï¿½Âµï¿½ï¿½Ö¶Î£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½.";
 		THROW_EX(err);
 		return "";
 	}

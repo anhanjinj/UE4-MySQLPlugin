@@ -1,45 +1,46 @@
 # UE4-MySQLPlugin
-///////////////////////////////////////////////////
 
-a UE4 plugin for MySQL
-@author 634395578@qq.com	2016/11/16
+## Contributor Update: Added 4.24 support
+The plugin provides custom interface of MySQL Connector C++ to Unreal Engine
 
-if you find any bug , you can send a email to my email: 634395578@qq.com
+Plugin author: 
+634395578@qq.com	2016/11/16
 
-//////////////////////////////////////////////////
 
 	support database:
-		
 			*mysql-5.7.16
+		not fully tested
+			*mysql-8.0.19
+
+
+------------
+
+
+
+
+
+
+To use this plugin you shuld:
+
+1. Set up MySQL on your computer.
+2. Add a plugin folder in your project, then copy "DBSupport" to Plugins folder, restart your project.
+3. if your project has vsproject, your **build.cs** should add "DBSupport" module :
+		
+		PublicDependencyModuleNames.AddRange(new string[] {"DBSupport"});
 	
-	later will support:	
-		
-		*postgresql
-		
-
-//////////////////////////////////////////////////
+4. add  in the file which you want use the plugin.
+```cpp
+"#include "DBSupport.h"
+```
 
 
 
-
-to use this plugin you shuld:
-
-1. set up mysql in your pc.
-2. add A plugin folder in your project, then copy "DBSupport" under it, restart your project.
-3. if your project has vsproject, your build.cs should add "DBSupport" moudle :
-		
-		PublicDependencyModuleNames.AddRange(new string[] { ....."DBSupport", ..... });
-
-4. add "#include "DBSupport.h" in the file which you want use the plugin.
+------------
 
 
-///////////////////////////////////////////////////////
 
 
 example code:
-
-
-
 
 		#include "MyP.h"
 		#include "MyPGameModeBase.h"
@@ -47,20 +48,14 @@ example code:
 		#include "DBSupport.h"
 		using namespace DBBase;
 
-
-
-
 		void AMyPGameModeBase::StartPlay()
 		{
 			Super::StartPlay();
 
-			
 			if (IDBSupportPlugin::IsAvailable())
 			{
-
 				//init connection
 				DBBase::IConnection * pDBC = IDBSupportPlugin::Get().GetConnection(MYSQL_CONNECTION);
-
 
 				if (pDBC)
 				{

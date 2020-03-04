@@ -7,7 +7,7 @@
 using namespace std;
 
 #if PLATFORM_WINDOWS
-#include "AllowWindowsPlatformTypes.h"
+#include "Windows/AllowWindowsPlatformTypes.h"
 #include <mysql.h>
 #endif
 
@@ -32,42 +32,42 @@ namespace DBBase
 		MYSQLRecordSet(MYSQL_RES * result);
 		~MYSQLRecordSet(){}
 
-		//»ñµÃ¼ÇÂ¼Êý
+		//ï¿½ï¿½Ã¼ï¿½Â¼ï¿½ï¿½
 		virtual unsigned int RecordCount();
 
-		//ÊÇ·ñÎÞÐ§
+		//ï¿½Ç·ï¿½ï¿½ï¿½Ð§
 		virtual bool IsEOF();
 
-		//ÒÆ¶¯µ½µÚÒ»¼ÇÂ¼
+		//ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â¼
 		virtual void MoveFirst();
 
-		//ÒÆ¶¯µ½ÏÂÒ»¼ÇÂ¼
+		//ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Â¼
 		virtual void MoveNext();
 
-		//»ñÈ¡ÕûÐÎÊý¾Ý
+		//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		virtual int	 GetIntegerValue(string fieldName);
 
-		//»ñÈ¡³¤ÕûÐÎÊý¾Ý
+		//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		virtual __int64 GetLongLongValue(string fieldName);
 
-		//»ñÈ¡×Ö·ûÊý¾Ý
+		//ï¿½ï¿½È¡ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½
 		virtual string GetStringValue(string fieldName);
 
-		//»ñÈ¡¼ÇÂ¼¼¯×Ö¶ÎÊý
+		//ï¿½ï¿½È¡ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½
 		virtual int	GetFieldCount();
 
-		//»ñÈ¡×Ö¶ÎÃû³Æ
+		//ï¿½ï¿½È¡ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½
 		virtual string	GetFieldName(int idx);
 
-		//¹Ø±ÕÒ»¸ö¼ÇÂ¼¼¯
+		//ï¿½Ø±ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
 		virtual void Close();
 	private:
 		void init();
 	private:
-		//Êý¾Ý¿â²éÑ¯½á¹û
+		//ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½
 		MYSQL_RES * m_Data;
 
-		//µ±Ç°Î»ÖÃ;
+		//ï¿½ï¿½Ç°Î»ï¿½ï¿½;
 		unsigned m_CurrentRecord;
 	};
 
@@ -78,37 +78,37 @@ namespace DBBase
 		MYSQLConnection(MYSQL * pConn);
 		virtual ~MYSQLConnection();
 
-		//Á¬½ÓÊý¾Ý¿â
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
 		virtual bool Connect(string host,string dbname, string user, string password, string Encoding ="GBK", int port = 3306);
 
-		//¶Ï¿ªÁ¬½Ó
+		//ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½
 		virtual bool DisConnect();
 
-		//ÊÇ·ñÁ¬½Ó
+		//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½
 		virtual bool IsOpen();
 
-		//Ö´ÐÐSQLÓï¾ä,ÎÞ·µ»Ø½á¹û
+		//Ö´ï¿½ï¿½SQLï¿½ï¿½ï¿½,ï¿½Þ·ï¿½ï¿½Ø½ï¿½ï¿½
 		virtual bool Execute(string SQL);
 
-		//Ö´ÐÐ²éÑ¯Óï¾ä£¬·µ»Ø¼ÇÂ¼¼¯;
+		//Ö´ï¿½Ð²ï¿½Ñ¯ï¿½ï¿½ä£¬ï¿½ï¿½ï¿½Ø¼ï¿½Â¼ï¿½ï¿½;
 		virtual IRecordSet * Query(string SQL);
 
-		//¿ªÊ¼ÊÂÎñ
+		//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 		virtual void BeginTrans();
 
-		//Ö´ÐÐÊÂÎñ
+		//Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		virtual void CommitTrans(); 
 
-		//»Ø¹ö²Ù×÷
+		//ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½
 		virtual void RollBackTrans();
 
-		//ÉèÖÃÊý¾Ý¿â±àÂë¸ñÊ½
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
 		virtual int	SetClientEncoding(const char * encode);
 
-		//»ñµÃÊý¾Ý¿âÁ¬½ÓÖ¸Õë£»
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë£»
 		virtual IConnectionPtr *ConnectionPtr();
 
-		//ÅÐ¶ÏÊý¾Ý¿âÖÐÄ³¸ö±íÊÇ·ñ´æÔÚ
+		//ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 		virtual bool IsTableExist(string TableName);
 	private:
 		void init();
