@@ -4,7 +4,7 @@
 a UE4 plugin for MySQL
 @author 634395578@qq.com	2016/11/16
 
-if you find any bug , you can send a email to my email: 634395578@qq.com
+if you find any bug , you can send a email to: 634395578@qq.com
 
 //////////////////////////////////////////////////
 
@@ -22,7 +22,7 @@ if you find any bug , you can send a email to my email: 634395578@qq.com
 
 
 
-to use this plugin you shuld:
+# To use this plugin you should:
 
 1. set up mysql in your pc.
 2. add A plugin folder in your project, then copy "DBSupport" under it, restart your project.
